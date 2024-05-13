@@ -25,6 +25,7 @@ runs:
         deno-version: v1.x
     - shell: bash
       run: |
-        ecno ${{ inputs.allow-net }}
-        ecno ${{ inputs.allow-env }}
-        ecno ${{ inputs.allow-env != false }}
+        echo ${{ inputs.allow-net }}
+        echo ${{ inputs.allow-env }}
+        echo ${{ inputs.allow-env != false }}
+        echo ${{ inputs.allow-net != false && format('--allow-net={}', inputs.allow-net) || '--deny-net' }}
