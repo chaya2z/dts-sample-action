@@ -28,4 +28,4 @@ runs:
         echo ${{ inputs.allow-net }}
         echo ${{ inputs.allow-env }}
         echo ${{ inputs.allow-env != false }}
-        echo ${{ inputs.allow-net != false && format('--allow-net={}', inputs.allow-net) || '--deny-net' }}
+        echo ${{ inputs.allow-net != false && format('--allow-net={0}', inputs.allow-net) || '--deny-net' }}
