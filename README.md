@@ -3,3 +3,5 @@
 GitHub Custom Action with Deno
 
 ## License
+
+MIT
