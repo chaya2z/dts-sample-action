@@ -23,10 +23,8 @@ runs:
       uses: denoland/setup-deno@v1
       with:
         deno-version: v1.x
-    - name: Deno Run
-      shell: bash
-      run: >
-        deno run
-        ${{ github.event.inputs.allow-env != false && format('--allow-env={}', github.event.inputs.allow-env) || '--deny-env' }}
-        ${{ github.event.inputs.allow-net != false && format('--allow-net={}', github.event.inputs.allow-net) || '--deny-net' }}
-        main.ts
+    - shell: bash
+      run: |
+        ecno ${{ inputs.allow-net }}
+        ecno ${{ inputs.allow-env }}
+        ecno ${{ inputs.allow-env != false }}
