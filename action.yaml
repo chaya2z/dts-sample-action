@@ -27,6 +27,6 @@ runs:
       shell: bash
       run: >
         deno run
-        ${{ github.event.inputs.allow-env == true && format('--allow-env={}', github.event.inputs.allow-env) || '--deny-env' }}
-        ${{ github.event.inputs.allow-net == true && format('--allow-net={}', github.event.inputs.allow-net) || '--deny-net' }}
+        ${{ github.event.inputs.allow-env != false && format('--allow-env={}', github.event.inputs.allow-env) || '--deny-env' }}
+        ${{ github.event.inputs.allow-net != false && format('--allow-net={}', github.event.inputs.allow-net) || '--deny-net' }}
         main.ts
