@@ -1,0 +1,32 @@
+name: "dts-sample-action"
+author: "chaya2z"
+description: "Sample GitHub Action with Deno"
+inputs:
+  token:
+    description: "GITHUB_TOKEN"
+    default: "${{ github.token }}"
+    required: false
+  allow-net:
+    description: |
+      Allow network access
+      You can specify a comma-separated list
+    required: false
+  allow-env:
+    description: |
+      Allow environment variables access
+      You can specify a comma-separated list
+    required: false
+runs:
+  using: composite
+  steps:
+    - name: Setup Deno
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+    - name: Deno Run
+      shell: bash
+      run: >
+        deno run
+        ${{ github.event.inputs.allow-net != '' && '--allow-net=' }}${{ github.event.inputs.allow-net }}
+        ${{ github.event.inputs.allow-env != '' && '--allow-env=' }}${{ github.event.inputs.allow-net }}
+        main.ts
