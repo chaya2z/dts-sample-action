@@ -6,7 +6,7 @@ const main = async () => {
     auth: Deno.env.get("GITHUB_TOKEN"),
   });
 
-  console.log(await octokit.rest.emojis.get());
+  await octokit.rest.emojis.get();
 };
 
 if (import.meta.main) {
