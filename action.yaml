@@ -25,6 +25,8 @@ runs:
         deno-version: v1.x
     - name: Deno Run
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: >
         deno run
         ${{ inputs.allow-net != false && format('--allow-net={0}', inputs.allow-net) || '--deny-net' }}
