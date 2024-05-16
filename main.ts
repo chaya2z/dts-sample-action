@@ -7,9 +7,8 @@ const main = async () => {
   });
 
   // get user
-  const { data: { login } } = await octokit.rest.users.getAuthenticated();
-
-  return login;
+  // const { data: { login } } = await octokit.rest.users.getAuthenticated();
+  octokit.rest.emojis.get();
 };
 
 if (import.meta.main) {
